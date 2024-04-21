@@ -50,7 +50,7 @@ export default function Page(){
       <Navbar/>
       <div className="flex min-h-screen flex-col items-center justify-between px-24 py-10">
          <div className=" w-10/12">
-            <h1 className="text-white text-3xl flex text-center"><MdOutlineManageHistory className="mr-2.5"/>Manage Product</h1>
+            <h1 className="text-white text-3xl flex text-center"><MdOutlineManageHistory className="mr-2.5"/>Manage Products</h1>
 
             <div>
               <Link href={'/create'} className="text-white text-md p-1 mb-1 mt-5 bg-[#22c55e] flex rounded hover:bg-[#15803d] transition ease-out w-24 "><IoMdAdd className="text-2xl mr-0.5"/>Create</Link>
