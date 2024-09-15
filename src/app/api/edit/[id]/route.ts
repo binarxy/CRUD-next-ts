@@ -5,7 +5,10 @@ import Product from "../../../../../lib/model/Schema";
 
 import { NextRequest , NextResponse} from "next/server";
 
-export async function PUT(req : NextRequest, { params } : any){
+export async function PUT(
+    req : NextRequest,
+    { params } : any
+){
     try {
     
     const { id } : ProductInfo = params
@@ -19,19 +22,15 @@ export async function PUT(req : NextRequest, { params } : any){
     if (description) { newFields.description = description }
 
     if (imageURL) { newFields.imageURL = imageURL }   
-
     
     await ConnectDB();
-
-    
-    
 
     await Product.findByIdAndUpdate(id,newFields)
 
     return NextResponse.json({msg : 'Update product success!'},{ status : 201})
 
     } catch (e) {
-        console.log(e);
+        console.log(`error :${e}`);
         return NextResponse.json({msg : 'fail to update this product.'}, { status : 500})
     }
 }     
