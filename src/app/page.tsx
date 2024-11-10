@@ -16,14 +16,11 @@ export default function Home() {
         'cache' : 'no-store'
       }) 
       
-      
       const product_fetch = await res.json()
       console.log(product_fetch.Products);
       
       if(res.ok){
         setProducts(product_fetch.Products)
-        // console.log(product);
-        
       }
     } catch (e) {
       console.log(e);
@@ -31,9 +28,7 @@ export default function Home() {
   }
 
   useEffect(()=>{
-    getProduct()
-    console.log(products);
-    
+    getProduct()    
   },[])
 
 
@@ -46,9 +41,15 @@ export default function Home() {
             {products && products.length > 0 ? (
               <div className='w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 '>
 
-                {products.map((product)=>(
+                {products.map(product => (
                   
-                  <Card key={product._id} name={product.name} description={product.description} imageURL={product.imageURL}/>
+                  <Card 
+                    key={product._id}
+                    name={product.name}
+                    description={product.description}
+                    imageURL={product.imageURL}
+                  />
+                
                 ))}
 
               </div>
